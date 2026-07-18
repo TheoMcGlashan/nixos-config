@@ -12,7 +12,10 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+		enable = true;
+		configurationLimit = 10;
+	};
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -96,6 +99,13 @@
   ];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 30d";
+	};
+	nix.optimize.automatic = true;
+	nix.optimize.dates = [ "weekly" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
