@@ -1,0 +1,193 @@
+environment {
+	// Set neovim as editor
+	EDITOR "nvim"
+	VISUAL "nvim"
+}
+
+input {
+  keyboard {
+		// Increase repeat rate and decrease repeat delay of holding down a key.
+		repeat-delay 250
+		repeat-rate 50
+  }
+
+  touchpad {
+		// Enable tapping on touchpad to click.
+    tap
+  }
+
+  trackpoint {
+		// Increase accel-speed, disable acceleration.
+		// Somehow, accel-speed still changes speed with acceleration disabled.
+    accel-speed 0.3
+    accel-profile "flat"
+  }
+
+	// When focusing window, mouse snaps to center of window.
+  warp-mouse-to-focus
+	// When moving mouse to window, focus moves to window.
+  focus-follows-mouse
+}
+
+output "eDP-1" {
+	mode "1920x1080@60.049"
+}
+
+layout {
+	// gap size between windows.
+  gaps 16
+
+	// Don't center windows when they are focused.
+  center-focused-column "on-overflow"
+
+	// If there is 1 window, center it.
+	always-center-single-column
+
+	// Add an empty workspace above first workspace
+	empty-workspace-above-first
+
+	// Allow for quick resizing of windows to saved presets
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+
+  focus-ring {
+      width 4
+      active-gradient from="#f7768e" to="#bb9af7" angle=45
+  }
+}
+
+hotkey-overlay {
+	// Don't display the hotkeys overlay at startup
+  skip-at-startup
+}
+
+// save screenshots to home directory
+screenshot-path "~/ from %Y-%m-%d %H-%M-%S.png"
+
+// Start xwayland-satellite at startup, some apps need it.
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+// Enable rounded corners for all windows.
+window-rule {
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+
+// Make non-focused windows slightly transparent
+window-rule {
+	match is-focused=false
+	opacity 0.85
+}
+
+binds {
+	// Open window of main hotkeys.
+  Mod+O repeat=false { show-hotkey-overlay; }
+
+  // Open/close the Overview: a zoomed-out view of workspaces and windows.
+  Mod+R repeat=false { toggle-overview; }
+
+	// Close window.
+  Mod+Q repeat=false { close-window; }
+
+  // Cycle through widths set in preset-column-widths.
+  Mod+E repeat=false { switch-preset-column-width; }
+
+  // Move the focused window between floating and the tiling.
+  Mod+I repeat=false { toggle-window-floating; }
+
+	// Power off monitor, turns back on with any input.
+  Mod+Control+Q { power-off-monitors; }
+
+	// Exit niri, ask for confirmation
+	Mod+Shift+Q { quit; }
+
+	// Open terminal, application launcher, browser, and file explorer.
+  Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+  Mod+Control+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+	Mod+Shift+Return hotkey-overlay-title="Open a Browser: firefox" { spawn "firefox";	}
+
+	// Volume controls
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+	// Brightness controls
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+	
+	// Change between focused windows.
+  Mod+H     { focus-column-left; }
+  Mod+J     { focus-window-down; }
+  Mod+K     { focus-window-up; }
+  Mod+L     { focus-column-right; }
+
+	// Move focused windows.
+  Mod+Ctrl+H     { move-column-left; }
+  Mod+Ctrl+J     { move-window-down; }
+  Mod+Ctrl+K     { move-window-up; }
+  Mod+Ctrl+L     { move-column-right; }
+
+	// Focus and move to first and last window.
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+	// Move up and down in workspaces
+  Mod+S              { focus-workspace-down; }
+  Mod+W              { focus-workspace-up; }
+  Mod+Ctrl+S         { move-column-to-workspace-down; }
+  Mod+Ctrl+W         { move-column-to-workspace-up; }
+  Mod+Shift+S        { move-workspace-down; }
+  Mod+Shift+W        { move-workspace-up; }
+
+	// Move workspaces with number keys
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+  Mod+Ctrl+1 { move-column-to-workspace 1; }
+  Mod+Ctrl+2 { move-column-to-workspace 2; }
+  Mod+Ctrl+3 { move-column-to-workspace 3; }
+  Mod+Ctrl+4 { move-column-to-workspace 4; }
+  Mod+Ctrl+5 { move-column-to-workspace 5; }
+  Mod+Ctrl+6 { move-column-to-workspace 6; }
+  Mod+Ctrl+7 { move-column-to-workspace 7; }
+  Mod+Ctrl+8 { move-column-to-workspace 8; }
+  Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+	// Effectively, this allows stacking of windows vertically
+  Mod+A  { consume-or-expel-window-left; }
+  Mod+D { consume-or-expel-window-right; }
+
+	// Fullscreen
+  Mod+F { maximize-column; }
+	// More Fullscreen
+  Mod+Shift+F { fullscreen-window; }
+	// Even more Fullscreen
+  Mod+Ctrl+F { maximize-window-to-edges; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+	// Ways to take screenshots.
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+}

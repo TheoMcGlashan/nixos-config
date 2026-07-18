@@ -1,0 +1,80 @@
+@define-color bg #1a1b26;
+@define-color bg_dark #16161e;
+@define-color fg #c0caf5;
+@define-color cyan #73daca;
+@define-color purple #bb9af7;
+@define-color pink #f7768e;
+@define-color blue #7aa2f7;
+@define-color yellow #e0af68;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: @bg_dark;
+    color: @fg;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 2px solid @purple;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @fg;
+}
+
+#workspaces button.active {
+    color: @purple;
+}
+
+#workspaces button.urgent {
+    color: @pink;
+}
+
+#window,
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background-color: @bg;
+}
+
+#window {
+    color: @cyan;
+    background-color: transparent;
+}
+
+#clock {
+    color: @blue;
+    border-bottom: 1px solid @blue;
+}
+
+#pulseaudio {
+    color: @purple;
+}
+
+#backlight {
+		color: @pink;
+}
+
+#network {
+    color: @cyan;
+}
+
+#battery {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @pink;
+    color: @bg_dark;
+}

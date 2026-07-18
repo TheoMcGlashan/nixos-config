@@ -1,0 +1,65 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "network",
+        "battery",
+        "tray"
+    ],
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "\u25cb",
+            "active": "\u25cf"
+        }
+    },
+    "niri/window": {
+        "format": "{} | {title}",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%Y-%m-%d  %H:%M}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "\uf2a4 Muted",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["\uf186", "\uf042", "\uf185"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "min-length": 6
+    },
+    "network": {
+        "format-wifi": "\uf1eb  {essid}",
+        "format-ethernet": "\uf6ff  Wired",
+        "format-disconnected": "\uf127  Disconnected"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+        "on-click": "notify-send -u low 'Battery Status' \"BAT0: $(cat /sys/class/power_supply/BAT0/capacity)%\nBAT1: $(cat /sys/class/power_supply/BAT1/capacity)%\""
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+}
