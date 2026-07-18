@@ -104,8 +104,8 @@
 		dates = "weekly";
 		options = "--delete-older-than 30d";
 	};
-	nix.optimize.automatic = true;
-	nix.optimize.dates = [ "weekly" ];
+	nix.optimise.automatic = true;
+	nix.optimise.dates = [ "weekly" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
