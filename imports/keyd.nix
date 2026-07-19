@@ -1,4 +1,4 @@
-{ pkgs, ... };
+{ pkgs, ... }:
 {
 	# Configure keyd system-wide to remap keys
 	services.keyd = {
