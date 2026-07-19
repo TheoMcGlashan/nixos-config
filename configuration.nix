@@ -3,7 +3,8 @@
   imports =
     [
       ./hosts/laptop/hardware-configuration.nix
-      ./niri.nix
+      ./imports/niri.nix
+			./imports/keyd.nix
     ];
 
 	# Define the name of the computer.
@@ -70,34 +71,6 @@
 
 	# Enable wifi through network manager.
   networking.networkmanager.enable = true;
-
-	# Configure keyd system-wide to remap keys
-	services.keyd = {
-		enable = true;
-		keyboards.default = {
-			ids = [ "*" ];
-			settings = {
-				main = {
-					shift 		= "oneshot(shift)";
-					meta 			= "oneshot(meta)";
-					control 	= "oneshot(control)";
-
-					leftalt 	= "oneshot(alt)";
-					rightalt 	= "oneshot(altgr)";
-
-					capslock 	= "overload(control, esc)";
-					esc				= "capslock";
-					insert		= "S-insert";
-				};
-				alt = {
-					h = "left";
-					k = "up";
-					j = "down";
-					l = "right";
-				};
-			};
-		};
-	};
 
 	# Enable zsh and make it default
 	programs.zsh.enable = true;
