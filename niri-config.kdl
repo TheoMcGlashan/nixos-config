@@ -4,6 +4,8 @@ environment {
 	VISUAL "nvim"
 }
 
+prefer-no-csd
+
 input {
   keyboard {
 		// Increase repeat rate and decrease repeat delay of holding down a key.
