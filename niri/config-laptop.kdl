@@ -1,0 +1,21 @@
+input {
+  touchpad {
+		// Enable tapping on touchpad to click.
+    tap
+  }
+
+  trackpoint {
+		// Increase accel-speed, disable acceleration.
+		// Somehow, accel-speed still changes speed with acceleration disabled.
+    accel-speed 0.3
+    accel-profile "flat"
+  }
+
+	// When moving mouse to window, focus moves to window.
+  focus-follows-mouse
+}
+
+output "eDP-1" {
+	mode "1920x1080@60.049"
+}
+

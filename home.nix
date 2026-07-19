@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, hostName, ... }:
 {
 	imports = [
 		./imports/yazi.nix
@@ -85,7 +85,15 @@
 		ueberzugpp
 	];
 
-	xdg.configFile."niri/config.kdl".source = ./niri-config.kdl;
+	xdg.configFile."niri/config.kdl".text =
+    builtins.readFile ./niri/config-common.kdl
+    + "\n"
+    + builtins.readFile (
+        if hostName == "laptop"
+        then ./niri/outputs-laptop.kdl
+        else ./niri/outputs-desktop.kdl
+      );
+
 	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
 	xdg.configFile = {
 		"nvim/init.lua".source              = ./nvim/init.lua;

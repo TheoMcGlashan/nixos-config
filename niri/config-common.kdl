@@ -1,9 +1,10 @@
 environment {
-	// Set neovim as editor
+	// Set neovim as default editor and viewer.
 	EDITOR "nvim"
 	VISUAL "nvim"
 }
 
+// Remove titlebars of applications.
 prefer-no-csd
 
 input {
@@ -13,26 +14,8 @@ input {
 		repeat-rate 50
   }
 
-  touchpad {
-		// Enable tapping on touchpad to click.
-    tap
-  }
-
-  trackpoint {
-		// Increase accel-speed, disable acceleration.
-		// Somehow, accel-speed still changes speed with acceleration disabled.
-    accel-speed 0.3
-    accel-profile "flat"
-  }
-
 	// When focusing window, mouse snaps to center of window.
   warp-mouse-to-focus
-	// When moving mouse to window, focus moves to window.
-  focus-follows-mouse
-}
-
-output "eDP-1" {
-	mode "1920x1080@60.049"
 }
 
 layout {
@@ -47,13 +30,6 @@ layout {
 
 	// Add an empty workspace above first workspace
 	empty-workspace-above-first
-
-	// Allow for quick resizing of windows to saved presets
-  preset-column-widths {
-    proportion 0.33333
-    proportion 0.5
-    proportion 0.66667
-  }
 
   focus-ring {
       width 4
@@ -71,14 +47,16 @@ screenshot-path "~/ from %Y-%m-%d %H-%M-%S.png"
 
 // Start xwayland-satellite at startup, some apps need it.
 spawn-at-startup "xwayland-satellite"
+// Start waybar, swaybg, bluetooth applet, and swayidle
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "/home/thoe/.config/wallpaper/DiscoWallpaper.png" "-m" "fill"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "sh" "-c" "exec /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "swayidle" "-w" \
 	"timeout" "300" "swaylock -f" \
 	"timeout" "600" "niri msg action power-off-monitors" \
 	"before-sleep" "swaylock -f"
+// I should really learn what this one does
+spawn-at-startup "sh" "-c" "exec /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
