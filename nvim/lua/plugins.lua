@@ -15,4 +15,5 @@ vim.pack.add({
 	"https://github.com/hrsh7th/cmp-omni",
   "https://github.com/mikavilpas/yazi.nvim",
 	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/echasnovski/mini.icons",
 })

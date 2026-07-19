@@ -56,7 +56,11 @@
 	};
 	
 	home.packages = with pkgs; [
+		psmisc
 		pavucontrol
+		tree-sitter
+		biber
+		xdotool
 		brightnessctl
 		libnotify
 		swaybg

@@ -6,6 +6,7 @@ require("nvim-treesitter").setup({
 	indent = { enable = true },
 })
 require("luasnip")
+require("mini.icons").setup()
 require("luasnip.loaders.from_lua").load({
 	paths = "~/.config/nvim/lua/snippets/"
 })
