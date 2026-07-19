@@ -17,7 +17,6 @@
           specialArgs = { inherit hostName; };
           modules = [
             ./configuration.nix
-            ./imports/niri.nix
             ./hosts/${hostName}/hardware-configuration.nix
             ./hosts/${hostName}/host.nix
             home-manager.nixosModules.home-manager

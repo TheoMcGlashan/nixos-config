@@ -5,7 +5,8 @@
 		./imports/foot.nix
 		./imports/fuzzel.nix
 		./imports/mako.nix
-	]
+	];
+
 	home.username = "thoe";
 	home.homeDirectory = "/home/thoe";
 	home.stateVersion = "26.05";
