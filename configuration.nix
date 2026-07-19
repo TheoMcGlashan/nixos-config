@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./hosts/laptop/hardware-configuration.nix
       ./niri.nix
     ];
 
