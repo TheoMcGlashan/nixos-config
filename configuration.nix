@@ -15,6 +15,13 @@
 
   networking.hostName = "nixos";
 
+	hardware.bluetooth = {
+		enable = true;
+		powerOnBoot = true;
+	};
+
+	services.blueman.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 

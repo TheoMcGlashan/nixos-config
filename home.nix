@@ -53,7 +53,12 @@
 		options = [ "--cmd cd" ];
 	};
 
-	programs.starship.enable = true;
+	programs.starship = {
+		enable = true;
+		settings = {
+			add_newline = false;
+		};
+	};
 
 	programs.foot = {
     enable = true;
@@ -168,6 +173,7 @@
 		brightnessctl
 		libnotify
 		swaybg
+		blueman
 
 		git
 		ripgrep
