@@ -97,6 +97,17 @@
 	programs.zsh.enable = true;
 	users.users.thoe.shell = pkgs.zsh;
 
+	programs.steam = {
+		enable = true;
+		remotePlay.openFirewall = true;
+		dedicatedServer.openFirewall = false;
+	};
+
+	hardware.graphics = {
+		enable = true;
+		enable32Bit = true;
+	};
+
 	# Enable flakes, and some flake commands, like update
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

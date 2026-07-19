@@ -175,6 +175,10 @@
 		swaybg
 		blueman
 
+		vesktop
+		spotify
+		xwayland-satellite
+
 		git
 		ripgrep
 		fd
@@ -205,5 +209,13 @@
 		"nvim/lua/lsp.lua".source           = ./nvim/lua/lsp.lua;
 		"nvim/lua/keybinds.lua".source      = ./nvim/lua/keybinds.lua;
 		"nvim/lua/snippets/tex.lua".source  = ./nvim/lua/snippets/tex.lua;
+	};
+	xdg.desktopEntries.steam = {
+		name = "Steam";
+		genericName = "Game Launcher";
+		exec = "steam -system-composer %U";
+		icon = "steam";
+		terminal = false;
+		categories = [ "Network" "FileTransfer" "Game" ];
 	};
 }
