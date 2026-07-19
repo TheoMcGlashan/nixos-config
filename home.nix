@@ -90,8 +90,8 @@
     + "\n"
     + builtins.readFile (
         if hostName == "laptop"
-        then ./niri/outputs-laptop.kdl
-        else ./niri/outputs-desktop.kdl
+        then ./niri/config-laptop.kdl
+        else ./niri/config-desktop.kdl
       );
 
 	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
