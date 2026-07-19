@@ -70,6 +70,7 @@ screenshot-path "~/ from %Y-%m-%d %H-%M-%S.png"
 // Start xwayland-satellite at startup, some apps need it.
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/thoe/.config/wallpaper/DiscoWallpaper.png" "-m" "fill"
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {

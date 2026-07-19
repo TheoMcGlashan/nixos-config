@@ -138,6 +138,7 @@
 		pavucontrol
 		brightnessctl
 		libnotify
+		swaybg
 
 		git
 		ripgrep
@@ -154,6 +155,7 @@
 	];
 
 	xdg.configFile."niri/config.kdl".source = ./niri-config.kdl;
+	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
 	xdg.configFile = {
 		"nvim/init.lua".source              = ./nvim/init.lua;
 		"nvim/lua/plugins.lua".source       = ./nvim/lua/plugins.lua;
