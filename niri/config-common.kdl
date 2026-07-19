@@ -7,17 +7,6 @@ environment {
 // Remove titlebars of applications.
 prefer-no-csd
 
-input {
-  keyboard {
-		// Increase repeat rate and decrease repeat delay of holding down a key.
-		repeat-delay 250
-		repeat-rate 50
-  }
-
-	// When focusing window, mouse snaps to center of window.
-  warp-mouse-to-focus
-}
-
 layout {
 	// gap size between windows.
   gaps 16
