@@ -7,9 +7,6 @@
 			./imports/keyd.nix
     ];
 
-	# Define the name of the computer.
-  networking.hostName = "nixos";
-
   # Define a user account.
   users.users."thoe" = {
     isNormalUser = true;
@@ -49,10 +46,6 @@
 		powerOnBoot = true;
 	};
 
-	# Battery management.
-	services.tlp.enable = true;
-	services.power-profiles-daemon.enable = false;
-
 	# Services for printing support.
 	services.printing.enable = true;
 	services.avahi = {
@@ -62,12 +55,6 @@
 
 	# Allow firmware updates.
 	services.fwupd.enable = true;
-
-	# Lock and suspend computer when lid closed.
-	services.logind.settings.Login = {
-		HandleLidSwitch = "suspend";
-		HandleLidSwitchExternalPower = "suspend";
-	};
 
 	# Enable wifi through network manager.
   networking.networkmanager.enable = true;
