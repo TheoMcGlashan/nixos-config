@@ -74,6 +74,11 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "/home/thoe/.config/wallpaper/DiscoWallpaper.png" "-m" "fill"
 spawn-at-startup "blueman-applet"
+spawn-at-startup "sh" "-c" "exec /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "swayidle" "-w" \
+	"timeout" "300" "swaylock -f" \
+	"timeout" "600" "niri msg action power-off-monitors" \
+	"before-sleep" "swaylock -f"
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {

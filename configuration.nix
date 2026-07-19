@@ -77,6 +77,21 @@
 		};
 	};
 
+	services.tlp.enable = true;
+	services.printing.enable = true;
+	services.avahi = {
+		enable = true;
+		nssmdns4 = true;
+	};
+	services.fwupd.enable = true;
+
+	services.power-profiles-daemon.enable = false;
+
+	services.logind.settings.Login = {
+		HandleLidSwitch = "suspend";
+		HandleLidSwitchExternalPower = "suspend";
+	};
+
   # Define a user account.
   users.users."thoe" = {
     isNormalUser = true;

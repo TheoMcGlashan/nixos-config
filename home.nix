@@ -173,25 +173,24 @@
 		brightnessctl
 		libnotify
 		swaybg
+		swaylock
+		swayidle
 		blueman
-
+		swayidle
+		xwayland-satellite
+		polkit_gnome
 		vesktop
 		spotify
-		xwayland-satellite
-
 		git
 		ripgrep
 		fd
 		gcc
-
+		texliveMedium
+		zathura
 		lua-language-server
 		pyright
 		rust-analyzer
 		texlab
-
-		texliveMedium
-		zathura
-
 		ffmpegthumbnailer
 		poppler-utils
 		imagemagick
