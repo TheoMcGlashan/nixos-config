@@ -6,6 +6,26 @@
 
 	programs.home-manager.enable = true;
 
+	programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+  };
+
+	programs.fzf = {
+		enable = true;
+		enableZshIntegration = true;
+	};
+
+	programs.zoxide = {
+		enable = true;
+		enableZshIntegration = true;
+		options = [ "--cmd cd" ];
+	};
+
+	programs.starship.enable = true;
+
 	programs.foot = {
     enable = true;
     settings = {
@@ -73,7 +93,6 @@
     };
   };
 
-	programs.zsh.enable = true;
 	programs.firefox.enable = true;
 
 	services.mako = {
@@ -130,7 +149,7 @@
 		rust-analyzer
 		texlab
 
-		texlive.combined.scheme-medium
+		texliveMedium
 		zathura
 	];
 
