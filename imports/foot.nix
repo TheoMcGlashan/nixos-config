@@ -1,10 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, hostName, ... }:
 {
 	programs.foot = {
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font:size=9";
+        font = if hostName == "laptop"
+					then "JetBrainsMono Nerd Font:size=9"
+					else "JetBrainsMono Nerd Font:size=14";
         dpi-aware = "yes";
       };
 

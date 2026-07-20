@@ -2,9 +2,8 @@
 {
   imports =
     [
-      ./hosts/laptop/hardware-configuration.nix
       ./imports/niri.nix
-			./imports/keyd.nix
+      ./imports/keyd.nix
     ];
 
   # Define a user account.
