@@ -13,6 +13,8 @@
 
 	programs.home-manager.enable = true;
 
+	programs.ssh.startAgent = true;
+
 	programs.zsh = {
     enable = true;
     enableCompletion = true;
