@@ -4,4 +4,16 @@ input{
 		repeat-delay 250
 		repeat-rate 50
   }
+
+}
+
+output "DP-1" {
+	mode "1920x1080@143.981"
+	variable-refresh-rate on-demand=true
+	position x=1920 y=0
+}
+
+output "DP-3" {
+	mode "1920x1080@60.000"
+	position x=0 y=0
 }

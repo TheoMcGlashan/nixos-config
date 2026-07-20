@@ -128,6 +128,14 @@ binds {
   Mod+Shift+S        { move-workspace-down; }
   Mod+Shift+W        { move-workspace-up; }
 
+	// Move focus between monitors
+	Mod+Shift+L		{ focus-monitor-right; }
+	Mod+Shift+H 	{ focus-monitor-left; }
+
+	// Move columns between monitors
+	Mod+Ctrl+Shift+L	{ move-column-to-monitor-right; }
+	Mod+Ctrl+Shift+R	{ move-column-to-monitor-left; }
+
 	// Move workspaces with number keys
   Mod+1 { focus-workspace 1; }
   Mod+2 { focus-workspace 2; }
