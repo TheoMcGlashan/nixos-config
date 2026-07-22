@@ -4,6 +4,7 @@
     [
       ./imports/niri.nix
       ./imports/keyd.nix
+			./imports/xfce.nix
     ];
 
   # Define a user account.
@@ -67,6 +68,10 @@
 		enable = true;
 		remotePlay.openFirewall = true;
 		dedicatedServer.openFirewall = false;
+	};
+	programs.gamescope = {
+		enable = true;
+		enableWsi = true;
 	};
 	hardware.graphics = {
 		enable = true;

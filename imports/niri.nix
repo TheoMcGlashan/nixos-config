@@ -2,16 +2,6 @@
 {
 	programs.niri.enable = true;
 
-	services.greetd = {
-		enable = true;
-		settings = {
-			default_session = {
-				command = "${pkgs.niri}/bin/niri-session";
-				user = "thoe";
-			};
-		};
-	};
-
 	security.polkit.enable = true;
 
 	hardware.graphics.enable = true;
