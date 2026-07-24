@@ -5,12 +5,13 @@
 		./imports/foot.nix
 		./imports/fuzzel.nix
 		./imports/mako.nix
+		./imports/niri-home.nix
 	];
 
+	# Set basic information and enable home manager
 	home.username = "thoe";
 	home.homeDirectory = "/home/thoe";
 	home.stateVersion = "26.05";
-
 	programs.home-manager.enable = true;
 
 	programs.zsh = {
@@ -95,15 +96,6 @@
 		ueberzugpp
 	];
 
-	# Import niri config files, combining files depending on host
-	xdg.configFile."niri/config.kdl".text =
-    builtins.readFile ./niri/config-common.kdl
-    + "\n"
-    + builtins.readFile (
-        if hostName == "laptop"
-        then ./niri/config-laptop.kdl
-        else ./niri/config-desktop.kdl
-      );
 
 	# Set location for wallpaper.
 	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
@@ -119,26 +111,6 @@
 		"nvim/lua/snippets/tex.lua".source  = ./nvim/lua/snippets/tex.lua;
 	};
 
-	# Create desktop entry to launch yazi inside foot.
-	xdg.desktopEntries.yazi = {
-    name = "Yazi";
-    genericName = "File Manager";
-    exec = "foot -e yazi %f";
-    icon = "yazi";
-    terminal = false;  # false because we're already wrapping in foot ourselves
-    categories = [ "System" "FileManager" ];
-    mimeType = [ "inode/directory" ];
-  };
-
-	# Register yazi as default file manager.
-	xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = [ "yazi.desktop" ];
-      "x-scheme-handler/file" = [ "yazi.desktop" ];
-    };
-  };
-	
 	# Make a desktop entry to launch steam with the right flags for niri.
 	xdg.desktopEntries.steam = {
 		name = "Steam";

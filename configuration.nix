@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ./imports/niri.nix
+      ./imports/niri-system.nix
       ./imports/keyd.nix
 			./imports/xfce.nix
     ];
