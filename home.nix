@@ -56,6 +56,7 @@
 	};
 	
 	home.packages = with pkgs; [
+		proton-authenticator
 		lutris
 		localsend
 		psmisc
@@ -91,6 +92,7 @@
 		ueberzugpp
 	];
 
+	# Import niri config files, combining files depending on host
 	xdg.configFile."niri/config.kdl".text =
     builtins.readFile ./niri/config-common.kdl
     + "\n"
@@ -100,7 +102,10 @@
         else ./niri/config-desktop.kdl
       );
 
+	# Set location for wallpaper.
 	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
+
+	# Import neovim configuration from these files.
 	xdg.configFile = {
 		"nvim/init.lua".source              = ./nvim/init.lua;
 		"nvim/lua/plugins.lua".source       = ./nvim/lua/plugins.lua;
@@ -110,6 +115,28 @@
 		"nvim/lua/keybinds.lua".source      = ./nvim/lua/keybinds.lua;
 		"nvim/lua/snippets/tex.lua".source  = ./nvim/lua/snippets/tex.lua;
 	};
+
+	# Create desktop entry to launch yazi inside foot.
+	xdg.desktopEntries.yazi = {
+    name = "Yazi";
+    genericName = "File Manager";
+    exec = "foot -e yazi %f";
+    icon = "yazi";
+    terminal = false;  # false because we're already wrapping in foot ourselves
+    categories = [ "System" "FileManager" ];
+    mimeType = [ "inode/directory" ];
+  };
+
+	# Register yazi as default file manager.
+	xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = [ "yazi.desktop" ];
+      "x-scheme-handler/file" = [ "yazi.desktop" ];
+    };
+  };
+	
+	# Make a desktop entry to launch steam with the right flags for niri.
 	xdg.desktopEntries.steam = {
 		name = "Steam";
 		genericName = "Game Launcher";
