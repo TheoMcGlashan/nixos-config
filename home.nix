@@ -56,6 +56,9 @@
 	};
 	
 	home.packages = with pkgs; [
+		qbittorrent
+		protonvpn-gui
+		proton-pass
 		proton-authenticator
 		lutris
 		localsend
