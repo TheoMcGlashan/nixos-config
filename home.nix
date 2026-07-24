@@ -56,6 +56,8 @@
 	};
 	
 	home.packages = with pkgs; [
+		lutris
+		localsend
 		psmisc
 		pavucontrol
 		tree-sitter

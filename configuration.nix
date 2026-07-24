@@ -59,6 +59,10 @@
 	# Enable wifi through network manager.
   networking.networkmanager.enable = true;
 
+	# Enable localsend to share files
+	networking.firewall.allowedTCPPorts = [ 53317 ];
+	networking.firewall.allowedUDPPorts = [ 53317 ];
+
 	# Enable zsh and make it default
 	programs.zsh.enable = true;
 	users.users.thoe.shell = pkgs.zsh;
