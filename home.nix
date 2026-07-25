@@ -18,7 +18,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-		initExtra = "export OLLAMA_API_BASE=http://127.0.0.1:11434"
+		initContent = "export OLLAMA_API_BASE=http://127.0.0.1:11434";
   };
 
 	programs.fzf = {
