@@ -103,29 +103,4 @@
 
 	# Nixos system version. Don't mess with this.
   system.stateVersion = "26.05";
-
-  # Ensure ProtonVPN is installed and configured
-  services.protonvpn = {
-    enable = true;
-    username = "your-protonvpn-username";
-    passwordFile = "/etc/protonvpn-password";
-  };
-
-  # Network configuration to ensure Vesktop can connect through the VPN
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 ]; # Add any necessary ports for Vesktop
-    allowedUDPPorts = [ 53 ];     # DNS port
-  };
-
-  # Ensure Vesktop has the necessary permissions and configurations
-  environment.systemPackages = with pkgs; [
-    vdesktop
-  ];
-
-  # Additional network settings if needed
-  networking.interfaces.default.ip6 = {
-    enable = true;
-    autoconf = true;
-  };
 }
