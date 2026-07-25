@@ -18,6 +18,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+		initExtra = "export OLLAMA_API_BASE=http://127.0.0.1:11434"
   };
 
 	programs.fzf = {
@@ -56,8 +57,10 @@
 	};
 	
 	home.packages = with pkgs; [
+		aider-chat
+		ollama
 		qbittorrent
-		protonvpn-gui
+		proton-vpn
 		proton-pass
 		proton-authenticator
 		lutris

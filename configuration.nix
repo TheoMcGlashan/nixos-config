@@ -56,6 +56,12 @@
 	# Allow firmware updates.
 	services.fwupd.enable = true;
 
+	# Enable ollama for local llms.
+	services.ollama = {
+		enable = true;
+		package = pkgs.ollama-rocm;
+	};
+
 	# Enable wifi through network manager.
   networking.networkmanager.enable = true;
 
