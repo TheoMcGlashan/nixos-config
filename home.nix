@@ -18,6 +18,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+		initContent = "export OLLAMA_API_BASE=http://127.0.0.1:11434";
   };
 
 	programs.fzf = {
@@ -59,8 +60,10 @@
 		gparted
 		vlc
 		gnome-network-displays
+		aider-chat
+		ollama
 		qbittorrent
-		protonvpn-gui
+		proton-vpn
 		proton-pass
 		proton-authenticator
 		lutris
