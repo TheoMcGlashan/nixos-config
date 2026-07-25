@@ -56,6 +56,9 @@
 	};
 	
 	home.packages = with pkgs; [
+		gparted
+		vlc
+		gnome-network-displays
 		qbittorrent
 		protonvpn-gui
 		proton-pass
