@@ -57,6 +57,9 @@
 	};
 	
 	home.packages = with pkgs; [
+		gparted
+		vlc
+		gnome-network-displays
 		aider-chat
 		ollama
 		qbittorrent
