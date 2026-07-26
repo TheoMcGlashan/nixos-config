@@ -18,7 +18,10 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-		initContent = "export OLLAMA_API_BASE=http://127.0.0.1:11434";
+		initContent = ''
+			export OLLAMA_API_BASE="http://127.0.0.1:11434"
+			export PATH="$HOME/.npm-global/bin:$PATH"
+		'';
   };
 
 	programs.fzf = {
@@ -57,6 +60,10 @@
 	};
 	
 	home.packages = with pkgs; [
+		htop
+		mission-center
+		prismlauncher
+		nodejs_22
 		gparted
 		vlc
 		gnome-network-displays
