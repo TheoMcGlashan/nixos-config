@@ -25,10 +25,21 @@
         "max-length": 50,
         "separate-outputs": true
     },
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%Y-%m-%d  %H:%M}"
-    },
+		"clock": {
+    	"format": "{:%A, %B %d, %Y %R}",
+    	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+    	"calendar": {
+        "mode" : "year",
+        "format": {
+        	"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+    	},
+    	"actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+    	}
+		},
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "\uf2a4 Muted",
