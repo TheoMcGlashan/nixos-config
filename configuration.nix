@@ -47,10 +47,17 @@
 	};
 
 	# Services for printing support.
-	services.printing.enable = true;
+	services.printing = {
+		enable = true;
+		drivers = with pkgs; [
+			brlaser
+			cups-filters
+		];
+	};
 	services.avahi = {
 		enable = true;
 		nssmdns4 = true;
+		openFirewall = true;
 	};
 
 	# Allow firmware updates.
