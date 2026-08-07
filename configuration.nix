@@ -70,6 +70,9 @@
 	networking.firewall.allowedTCPPorts = [ 53317 ];
 	networking.firewall.allowedUDPPorts = [ 53317 ];
 
+	# Enable gamemode for gaming performance
+	programs.gamemode.enable = true;
+
 	# Enable zsh and make it default
 	programs.zsh.enable = true;
 	users.users.thoe.shell = pkgs.zsh;
