@@ -17,9 +17,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.cmd("colorscheme tokyonight-night")
 
-vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_method = 'zathura_simple'
 vim.g.vimtex_compiler_method = 'latexmk'
-vim.g.vimtex_view_zathura_options = '-x "GDK_BACKEND=x11 zathura --synctex-editor-command"'
 vim.g.vimtex_compiler_latexmk = {
     options = {
 				"-pdf",
