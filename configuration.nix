@@ -47,10 +47,17 @@
 	};
 
 	# Services for printing support.
-	services.printing.enable = true;
+	services.printing = {
+		enable = true;
+		drivers = with pkgs; [
+			brlaser
+			cups-filters
+		];
+	};
 	services.avahi = {
 		enable = true;
 		nssmdns4 = true;
+		openFirewall = true;
 	};
 
 	# Allow firmware updates.
@@ -62,6 +69,9 @@
 	# Enable localsend to share files
 	networking.firewall.allowedTCPPorts = [ 53317 ];
 	networking.firewall.allowedUDPPorts = [ 53317 ];
+
+	# Enable gamemode for gaming performance
+	programs.gamemode.enable = true;
 
 	# Enable zsh and make it default
 	programs.zsh.enable = true;

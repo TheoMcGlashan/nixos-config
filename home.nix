@@ -60,6 +60,7 @@
 	};
 	
 	home.packages = with pkgs; [
+		unzip
 		htop
 		mission-center
 		prismlauncher
