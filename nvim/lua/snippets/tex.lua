@@ -1,7 +1,9 @@
 local ls = require("luasnip")
 local s = ls.snippet
+local sn = ls.snippet_node
 local t = ls.text_node
 local i = ls.insert_node
+local d = ls.dynamic_node
 local rep = require("luasnip.extras").rep
 
 local function in_mathzone()
@@ -10,11 +12,50 @@ end
 
 local math = { condition = in_mathzone, show_condition = in_mathzone }
 
+-- Function to build a table of any size
+local function table_node(_, parent)
+    local rows = tonumber(parent.captures[1])
+    local cols = tonumber(parent.captures[2])
+
+    local nodes = {}
+    local idx = 1
+
+    local colspec = "|" .. string.rep("c|", cols)
+
+    table.insert(nodes, t({
+        "\\begin{center}",
+        "\\begin{tabular}{ " .. colspec .. " } ",
+        " \\hline",
+        " "
+    }))
+
+    for r = 1, rows do
+        for c = 1, cols do
+            table.insert(nodes, i(idx))
+            idx = idx + 1
+            if c < cols then
+                table.insert(nodes, t(" & "))
+            end
+        end
+        table.insert(nodes, t({ " \\\\ ", " \\hline", " " }))
+    end
+
+    table.insert(nodes, t({
+        "\\end{tabular}",
+        "\\end{center}"
+    }))
+
+    return sn(nil, nodes)
+end
+
 return {
 
 	-- ======================================================
 	-- TEMPLATE
 	-- ======================================================
+	
+	s({ trig="tbl(%d)(%d)", regTrig=true },
+		{ d(1, table_node, {}) }),
 
 	s("template", {
 		t({
