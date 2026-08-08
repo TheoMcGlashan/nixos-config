@@ -6,10 +6,10 @@ local i = ls.insert_node
 local d = ls.dynamic_node
 local rep = require("luasnip.extras").rep
 
+-- Function to tell if in math mode.
 local function in_mathzone()
 	return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
-
 local math = { condition = in_mathzone, show_condition = in_mathzone }
 
 -- Function to build a table of any size
@@ -49,7 +49,6 @@ local function table_node(_, parent)
 end
 
 return {
-
 	-- ======================================================
 	-- TEMPLATE
 	-- ======================================================
