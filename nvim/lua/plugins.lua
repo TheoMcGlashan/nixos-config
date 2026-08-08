@@ -16,4 +16,5 @@ vim.pack.add({
   "https://github.com/mikavilpas/yazi.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/echasnovski/mini.icons",
+  "https://github.com/folke/todo-comments.nvim",
 })
