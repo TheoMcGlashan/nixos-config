@@ -64,7 +64,10 @@
 	services.fwupd.enable = true;
 
 	# Enable wifi through network manager.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+		enable = true;
+		ethernet.macAddress = "stable";
+	};
 
 	# Enable localsend to share files
 	networking.firewall.allowedTCPPorts = [ 53317 ];
