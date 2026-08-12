@@ -92,8 +92,6 @@ binds {
 	// Power off monitor, turns back on with any input.
   Mod+Control+Q { power-off-monitors; }
 
-	// Mute Microphone.
-
 	// Exit niri, ask for confirmation
 	Mod+Shift+Q { quit; }
 
@@ -101,6 +99,7 @@ binds {
   Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
   Mod+Control+Return hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
 	Mod+Shift+Return hotkey-overlay-title="Open a Browser: firefox" { spawn "firefox";	}
+	Mod+Y { spawn "foot" "-e" "yazi"; }
 
 	// Volume controls
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

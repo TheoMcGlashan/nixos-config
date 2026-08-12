@@ -23,6 +23,7 @@ local function table_node(_, parent)
     local colspec = "|" .. string.rep("c|", cols)
 
     table.insert(nodes, t({
+				"{\\Large",
         "\\begin{center}",
         "\\begin{tabular}{ " .. colspec .. " } ",
         " \\hline",
@@ -42,7 +43,8 @@ local function table_node(_, parent)
 
     table.insert(nodes, t({
         "\\end{tabular}",
-        "\\end{center}"
+        "\\end{center}",
+				"}"
     }))
 
     return sn(nil, nodes)
@@ -50,15 +52,12 @@ end
 
 return {
 	-- ======================================================
-	-- TEMPLATE
+	-- TEMPLATES
 	-- ======================================================
 	
-	s({ trig="tbl(%d)(%d)", regTrig=true },
-		{ d(1, table_node, {}) }),
-
 	s("template", {
 		t({
-			"\\documentclass[12pt]{amsart}",
+			"\\documentclass[12pt]{article}",
 			"\\usepackage{amsmath}",
 			"\\usepackage{amsthm}",
 			"\\usepackage{amsfonts}",
@@ -90,10 +89,46 @@ return {
 		}),
 	}),
 
+	s("lessonplan", {
+		t({
+			"\\documentclass[17pt]{article}",
+			"\\usepackage{amsmath}",
+			"\\usepackage{amsthm}",
+			"\\usepackage{amsfonts}",
+			"\\usepackage{mathrsfs}",
+			"\\usepackage{graphicx}",
+			"\\usepackage{setspace}",
+			"\\usepackage{float}",
+			"\\usepackage{mathtools}",
+			"\\usepackage[margin=1in]{geometry}",
+			"",
+			"\\title{Lesson ",
+		}),
+		i(1),
+		t({
+			"}",
+			"\\author{Trinity-Pawling}",
+			"\\date{2026-2027}",
+			"\\begin{document}",
+			"\\maketitle",
+			"",
+			"",
+		}),
+		i(2),
+		t({
+			"",
+			"",
+			"\\end{document}",
+		}),
+	}),
 	-- ======================================================
 	-- ENVIRONMENTS AND SECTIONS
 	-- ======================================================
-	--
+
+	-- Invoke function to create table of variable size
+	s({ trig="tbl(%d+)x(%d+)", regTrig=true },
+		{ d(1, table_node, {}) }),
+
 	s("sbsa", {
 		t("\\subsection*{"), i(1), t("}") 
 	}),

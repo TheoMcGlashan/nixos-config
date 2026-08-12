@@ -60,6 +60,9 @@
 	};
 	
 	home.packages = with pkgs; [
+		kdePackages.kdenlive
+		wf-recorder
+		slurp
 		libreoffice
 		hunspell
 		hunspellDicts.en_US
@@ -112,7 +115,7 @@
 		ueberzugpp
 	];
 
-	# Import niri config files, combining files depending on host
+	# Import niri config files, combining files depending on host.
 	xdg.configFile."niri/config.kdl".text =
     builtins.readFile ./niri/config-common.kdl
     + "\n"
@@ -121,6 +124,12 @@
         then ./niri/config-laptop.kdl
         else ./niri/config-desktop.kdl
       );
+
+	# Prevent Desktop, Documents, and Downloads folders from being created.
+	xdg.userDirs = {
+		enable = true;
+		createDirectories = false;
+	};
 
 	# Set location for wallpaper.
 	xdg.configFile."wallpaper/DiscoWallpaper.png".source = ./wallpaper/DiscoWallpaper.png;
@@ -142,7 +151,7 @@
     genericName = "File Manager";
     exec = "foot -e yazi %f";
     icon = "yazi";
-    terminal = false;  # false because we're already wrapping in foot ourselves
+    terminal = false;
     categories = [ "System" "FileManager" ];
     mimeType = [ "inode/directory" ];
   };
