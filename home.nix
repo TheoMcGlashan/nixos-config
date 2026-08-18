@@ -60,6 +60,7 @@
 	};
 	
 	home.packages = with pkgs; [
+		gnome-disk-utility
 		kdePackages.kdenlive
 		wf-recorder
 		slurp

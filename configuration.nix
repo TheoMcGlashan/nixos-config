@@ -63,6 +63,9 @@
 	# Allow firmware updates.
 	services.fwupd.enable = true;
 
+	# Service needed by gnome disks utility
+	services.udisks2.enable = true;
+
 	# Enable wifi through network manager.
   networking.networkmanager = {
 		enable = true;
