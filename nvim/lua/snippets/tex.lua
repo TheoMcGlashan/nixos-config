@@ -91,7 +91,7 @@ return {
 
 	s("lessonplan", {
 		t({
-			"\\documentclass[17pt]{article}",
+			"\\documentclass[17pt]{extarticle}",
 			"\\usepackage{amsmath}",
 			"\\usepackage{amsthm}",
 			"\\usepackage{amsfonts}",
@@ -261,7 +261,7 @@ return {
 	{ t("\\bullet ") }, math),
 
 	s({ trig = "dts", snippetType = "autosnippet" }, {
-		t("\\dots ")
+		t("\\ldots ")
 	}, math),
 
 	s({trig = "leq", snippetType = "autosnippet",
