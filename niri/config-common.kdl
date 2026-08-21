@@ -180,7 +180,7 @@ binds {
   Mod+Equal { set-column-width "+10%"; }
 
 	// Ways to take screenshots.
-  Print { screenshot; }
-  Ctrl+Print { screenshot-screen; }
-  Alt+Print { screenshot-window; }
+  Mod+P{ screenshot; }
+  Mod+Ctrl+P { screenshot-screen; }
+  Mod+Shift+P { screenshot-window; }
 }
