@@ -231,7 +231,7 @@ return {
 
 	s("fgr", {
 		t({ "\\begin{figure}[H]", "\t\\centering" }),
-		t({ "", "\t\\includegraphics[height=18em]{" }),
+		t({ "", "\t\\includegraphics[height=17em]{" }),
 		i(1), t("}"),
 		t({ "", "\t\\caption{" }),
 		i(2), t("}"),
