@@ -300,6 +300,9 @@ return {
 	s({ trig = "eqc", snippetType = "autosnippet" },
 	{ t("\\eqcolon ") }, math),
 
+	s({ trig = "vct", snippetType = "autosnippet" },
+	{ t("\\vec{"), i(1), t("}") }, math),
+
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
 	-- ======================================================
@@ -538,7 +541,7 @@ return {
 	s({ trig = "OO", snippetType = "autosnippet" }, { t("\\Omega ") },      math),
 	s({ trig = "ff", snippetType = "autosnippet" }, { t("\\phi ") },        math),
 	s({ trig = "vf", snippetType = "autosnippet" }, { t("\\varphi ") },     math),
-	s({ trig = "ps", snippetType = "autosnippet" }, { t("\\psi ") },        math),
+	s({ trig = "pi", snippetType = "autosnippet" }, { t("\\psi ") },        math),
 	s({ trig = "PS", snippetType = "autosnippet" }, { t("\\Psi ") },        math),
 	s({ trig = "xx", snippetType = "autosnippet" }, { t("\\xi ") },         math),
 	s({ trig = "XX", snippetType = "autosnippet" }, { t("\\Xi ") },         math),
