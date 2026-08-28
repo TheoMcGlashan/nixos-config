@@ -14,18 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9822cc81-b8a6-4bfc-b259-ab24fa7e6c4e";
+    { device = "/dev/disk/by-uuid/a5b175c8-e4c7-4526-9a4c-ec2fed8bab6b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F5E9-6D24";
+    { device = "/dev/disk/by-uuid/DFC9-9054";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/461da639-e792-4b1a-8956-db57af751dd6"; }
+    [ { device = "/dev/disk/by-uuid/9abcae7d-5ab0-4f86-a26c-aa123e320cb0"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
