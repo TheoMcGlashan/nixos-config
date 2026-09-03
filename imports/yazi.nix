@@ -5,26 +5,6 @@
 		enableZshIntegration = true;
 
 		settings = {
-			opener = {
-				pdf-viewer = [
-					{
-						run = ''zathura "$@"'';
-						desc = "Open with Zathura";
-						block = true;
-						for = "unix"
-					}
-				];
-			};
-
-			open = {
-				rules = [
-					{
-						mime = "application/pdf";
-						use = [ "pdf-viewer" "reveal" ];
-					}
-				];
-			};
-
 			mgr = {
 				ration = [ 1 3 4 ];
 				sort_by = "alphabetical";
