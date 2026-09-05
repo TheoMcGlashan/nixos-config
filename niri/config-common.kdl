@@ -46,8 +46,6 @@ spawn-at-startup "swayidle" "-w" \
 	"before-sleep" "swaylock -f"
 // I should really learn what this one does
 spawn-at-startup "sh" "-c" "exec /run/current-system/sw/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "proton-vpn"
-spawn-at-startup "vesktop"
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
