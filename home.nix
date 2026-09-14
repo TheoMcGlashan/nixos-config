@@ -60,6 +60,8 @@
 	};
 	
 	home.packages = with pkgs; [
+		kdePackages.okular
+		mupdf
 		gnome-disk-utility
 		kdePackages.kdenlive
 		wf-recorder

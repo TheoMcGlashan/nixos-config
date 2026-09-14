@@ -91,7 +91,7 @@ return {
 
 	s("lessonplan", {
 		t({
-			"\\documentclass[17pt]{extarticle}",
+			"\\documentclass[14pt]{extarticle}",
 			"\\usepackage{amsmath}",
 			"\\usepackage{amsthm}",
 			"\\usepackage{amsfonts}",
@@ -303,6 +303,9 @@ return {
 	s({ trig = "vct", snippetType = "autosnippet" },
 	{ t("\\vec{"), i(1), t("}") }, math),
 
+	s({ trig = "ovr", snippetType = "autosnippet" },
+	{ t("\\overrightarrow{"), i(1), t("}") }, math),
+
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
 	-- ======================================================
@@ -417,25 +420,20 @@ return {
 	),
 
 	s({ trig = "prd", snippetType = "autosnippet" },
-	{
-		t("\\prod_{"), i(1, "i=1"), t("}^{"), i(2, "n"), t("} "), i(3),
-	},
-		math
-	),
+	{ t("\\prod_{"), i(1, "i=1"), t("}^{"), i(2, "n"), t("} "), i(3), },
+	math ),
 
 	s({ trig = "lmt", snippetType = "autosnippet" },
-	{
-		t("\\lim_{"), i(1, "x \\to 0"), t("} "), i(2),
-	},
-		math
-	),
+	{ t("\\lim_{"), i(1, "x \\to 0"), t("} "), i(2), },
+	math ),
 
 	s({ trig = "ptl", snippetType = "autosnippet" },
-	{
-		t("\\frac{\\partial "), i(1), t("}{\\partial "), i(2), t("}"),
-	},
-		math
-	),
+	{ t("\\frac{\\partial "), i(1), t("}{\\partial "), i(2), t("}"), }, 
+	math ),
+
+	s({ trig = "ubr", snippetType = "autosnippet" },
+	{ t("\\underbrace{"), i(1), t("}_{"), i(2), t("}"), },
+	math ),
 
 	-- ======================================================
 	-- MODIFIERS
