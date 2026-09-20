@@ -121,6 +121,43 @@ return {
 			"\\end{document}",
 		}),
 	}),
+
+	s("test", {
+		t({
+			"\\documentclass[14pt]{extarticle}",
+			"\\usepackage{amsmath}",
+			"\\usepackage{amsthm}",
+			"\\usepackage{amsfonts}",
+			"\\usepackage{mathrsfs}",
+			"\\usepackage{graphicx}",
+			"\\usepackage{setspace}",
+			"\\usepackage{float}",
+			"\\usepackage{mathtools}",
+			"\\usepackage[margin=1in]{geometry}",
+			"",
+			"\\title{",
+		}),
+		i(1),
+		t({
+			"}",
+			"\\author{Trinity-Pawling}",
+			"\\date{2026-2027}",
+			"\\begin{document}",
+			"\\maketitle",
+			"\\onehalfspace",
+			"",
+			"\\textbf{Name:} \\underline{\\hspace{8em}}",
+			"",
+			"\\textbf{Note:} Whenever possible, \\textbf{show your work.} A four-function calculator is permitted.",
+			"",
+		}),
+		i(2),
+		t({
+			"",
+			"",
+			"\\end{document}",
+		}),
+	}),
 	-- ======================================================
 	-- ENVIRONMENTS AND SECTIONS
 	-- ======================================================
@@ -306,6 +343,12 @@ return {
 	s({ trig = "ovr", snippetType = "autosnippet" },
 	{ t("\\overrightarrow{"), i(1), t("}") }, math),
 
+	s({ trig = "vcv", snippetType = "autosnippet" },
+	{ t("\\vec{v} ") }, math),
+
+	s({ trig = "vcu", snippetType = "autosnippet" },
+	{ t("\\vec{u} ") }, math),
+
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
 	-- ======================================================
@@ -434,6 +477,20 @@ return {
 	s({ trig = "ubr", snippetType = "autosnippet" },
 	{ t("\\underbrace{"), i(1), t("}_{"), i(2), t("}"), },
 	math ),
+
+	s({ trig = "bmr", snippetType = "autosnippet" },
+	{ t( {"\\begin{bmatrix}", "\t" }),
+		i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
+		i(3), t(" & "), i(4),
+		t({ "", "\\end{bmatrix}" }),
+	}),
+
+	s({ trig = "vmr", snippetType = "autosnippet" },
+	{ t( {"\\begin{vmatrix}", "\t" }),
+		i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
+		i(3), t(" & "), i(4),
+		t({ "", "\\end{vmatrix}" }),
+	}),
 
 	-- ======================================================
 	-- MODIFIERS
