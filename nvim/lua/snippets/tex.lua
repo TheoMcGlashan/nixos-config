@@ -281,7 +281,7 @@ return {
 	-- SYMBOLS
 	-- ======================================================
 
-	s({ trig = "in", snippetType = "autosnippet",
+	s({ trig = "nnn", snippetType = "autosnippet",
 		wordTrig = false },
 	{ t("\\in ") }, math),
 
