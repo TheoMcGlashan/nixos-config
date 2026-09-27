@@ -564,7 +564,7 @@ return {
 		math
 	),
 	s({ trig = "mbf", snippetType = "autosnippet" },
-	{ t("\\mathsbf{"), i(1), t("}")},
+	{ t("\\mathbf{"), i(1), t("}")},
 		math
 	),
 	s("tit", {
