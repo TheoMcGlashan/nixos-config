@@ -60,6 +60,7 @@
 	};
 	
 	home.packages = with pkgs; [
+		brave
 		kdePackages.okular
 		mupdf
 		gnome-disk-utility

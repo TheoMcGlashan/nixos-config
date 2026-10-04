@@ -79,6 +79,9 @@
 	# Enable gamemode for gaming performance
 	programs.gamemode.enable = true;
 
+	# Enable dynamic linker to run binaries
+	programs.nix-ld.enable = true;
+
 	# Enable zsh and make it default
 	programs.zsh.enable = true;
 	users.users.thoe.shell = pkgs.zsh;
