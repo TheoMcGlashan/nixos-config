@@ -148,15 +148,12 @@ return {
 			"",
 			"\\textbf{Name:} \\underline{\\hspace{8em}}",
 			"",
-			"\\textbf{Note:} Whenever possible, \\textbf{show your work.} A four-function calculator is permitted.",
-			"",
-		}),
-		i(2),
-		t({
-			"",
-			"",
-			"\\end{document}",
-		}),
+			"\\textbf{Note:} Whenever possible, \\textbf{show your work.} A four-function calculator is permitted. Each question is worth ", 
+		}), i(2),
+		t(" points, for a total of "), i(3),
+		t(" points."),
+		t(""), i(4),
+		t("\\end{document}"),
 	}),
 	-- ======================================================
 	-- ENVIRONMENTS AND SECTIONS
