@@ -12,7 +12,8 @@
     isNormalUser = true;
     description = "Theo McGlashan";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+		];
   };
 
 	# Define the keyboard layout.

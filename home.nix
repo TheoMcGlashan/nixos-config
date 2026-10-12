@@ -60,7 +60,7 @@
 	};
 	
 	home.packages = with pkgs; [
-		googler
+		antigravity-cli
 		brave
 		kdePackages.okular
 		gnome-disk-utility
