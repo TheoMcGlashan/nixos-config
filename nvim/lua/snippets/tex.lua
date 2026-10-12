@@ -284,9 +284,6 @@ return {
 	s({ trig = "ii", snippetType = "autosnippet",
 		wordTrig = false }, { t("\\in ") }, math),
 
-	s({ trig = "kk", snippetType = "autosnippet",
-		wordTrig = false }, { t("\\to ") }, math),
-
 	s({ trig = "fal", snippetType = "autosnippet",
 		wordTrig = false }, { t("\\forall ") }, math),
 
@@ -311,29 +308,30 @@ return {
 	s({trig = "neq", snippetType = "autosnippet",
 		wordTrig = false }, { t("\\neq "), }, math),
 
-	s({ trig = "ift", snippetType = "autosnippet" },
-	{ t("\\infty ") }, math),
+	s({ trig = "ift", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\infty ") }, math),
 
-	s({ trig = "cdt", snippetType = "autosnippet" },
-	{ t("\\cdot ") }, math),
+	s({ trig = "cdt", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\cdot ") }, math),
 
-	s({ trig = "tms", snippetType = "autosnippet" },
-	{ t("\\times ") }, math),
+	s({ trig = "tms", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\times ") }, math),
 
-	s({ trig = "crc", snippetType = "autosnippet" },
-	{ t("\\circ ") }, math),
+	s({ trig = "crc", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\circ ") }, math),
 
-	s({ trig = "ceq", snippetType = "autosnippet" },
-	{ t("\\coloneq ") }, math),
+	s({ trig = "ceq", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\coloneq ") }, math),
 
-	s({ trig = "eqc", snippetType = "autosnippet" },
-	{ t("\\eqcolon ") }, math),
+	s({ trig = "eqc", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\eqcolon ") }, math),
 
-	s({ trig = "vv", snippetType = "autosnippet" },
-	{ t("\\vec{"), i(1), t("}") }, math),
+	s({ trig = "vv", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\vec{"), i(1), t("}") }, math),
 
-	s({ trig = "ovr", snippetType = "autosnippet" },
-	{ t("\\overrightarrow{"), i(1), t("}") }, math),
+	s({ trig = "ovr", snippetType = "autosnippet",
+		wordTrig = false }, 
+		{ t("\\overrightarrow{"), i(1), t("}") }, math),
 
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
@@ -510,6 +508,7 @@ return {
 	s({ trig = "dd", snippetType = "autosnippet" }, { t("\\delta ") },      math),
 	s({ trig = "DD", snippetType = "autosnippet" }, { t("\\Delta ") },      math),
 	s({ trig = "ee", snippetType = "autosnippet" }, { t("\\epsilon") },    math),
+	s({ trig = "kk", snippetType = "autosnippet" }, { t("\\kappa") },    math),
 	s({ trig = "tt", snippetType = "autosnippet" }, { t("\\theta ") },      math),
 	s({ trig = "ll", snippetType = "autosnippet" }, { t("\\lambda ") },     math),
 	s({ trig = "mm", snippetType = "autosnippet" }, { t("\\mu ") },         math),
