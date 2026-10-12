@@ -60,9 +60,9 @@
 	};
 	
 	home.packages = with pkgs; [
+		googler
 		brave
 		kdePackages.okular
-		mupdf
 		gnome-disk-utility
 		kdePackages.kdenlive
 		wf-recorder

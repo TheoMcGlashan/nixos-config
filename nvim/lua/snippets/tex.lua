@@ -152,7 +152,7 @@ return {
 		}), i(2),
 		t(" points, for a total of "), i(3),
 		t(" points."),
-		t(""), i(4),
+		t(""), i(4), t(""),
 		t("\\end{document}"),
 	}),
 	-- ======================================================
@@ -163,96 +163,99 @@ return {
 	s({ trig="tbl(%d+)x(%d+)", regTrig=true },
 		{ d(1, table_node, {}) }),
 
-	s("sbsa", {
-		t("\\subsection*{"), i(1), t("}") 
-	}),
+	s("sbs", { t("\\subsection*{"), i(1), t("}") }),
 
-	s("scta", {
-    t("\\section*{"), i(1), t("}")
-	}),
+	s("sct", { t("\\section*{"), i(1), t("}") }),
 
-	s("sct", {
-    t("\\section{"), i(1), t("}")
-	}),
+	s("scn", { t("\\section{"), i(1), t("}") }),
 
-	s("sbs", {
-    t("\\subsection{"), i(1), t("}")
-  }),
+	s("sbn", { t("\\subsection{"), i(1), t("}") }),
 
-	s({ trig = "txt", snippetType = "autosnippet" }, {
-		t("\\text{"), i(1), t("}") 
-	}, math ),
+	s({ trig = "txt", snippetType = "autosnippet" }, 
+		{ t("\\text{"), i(1), t("}")  }, math ),
 
 	s("bgn", {
 			t("\\begin{"), i(1, "env"), t("}"),
 			t({"", "\t"}), i(0),
-			t({"", "\\end{"}), rep(1), t("}")
+			t({"", "\\end{"}), rep(1), t("}"),
+			t(""), i(2),
 	}),
 
 	s("ctr", {
 		t({ "\\begin{center}", "\t" }),
 		i(1),
 		t({ "", "\\end{center}" }),
-	}),
-
-	s("eqta", {
-		t({ "\\begin{equation*}", "\t" }),
-		i(1),
-		t({ "", "\\end{equation*}" }),
+		t(""), i(2),
 	}),
 
 	s("eqt", {
+		t({ "\\begin{equation*}", "\t" }),
+		i(1),
+		t({ "", "\\end{equation*}" }),
+		t(""), i(2),
+	}),
+
+	s("eqn", {
 		t({ "\\begin{equation}", "\t" }),
 		i(1),
 		t({ "", "\\end{equation}" }),
+		t(""), i(2),
 	}),
 
-	s("alna", {
+	s("alg", {
 		t({ "\\begin{align*}", "\t" }),
 		i(1),
 		t({ "", "\\end{align*}" }),
+		t(""), i(2),
 	}),
 
 	s("aln", {
 		t({ "\\begin{align}", "\t" }),
 		i(1),
 		t({ "", "\\end{align}" }),
+		t(""), i(2),
 	}),
 
-	s("gtr", {
+	s("gth", {
 		t({ "\\begin{gather}", "\t" }),
 		i(1),
 		t({ "", "\\end{gather}" }),
+		t(""), i(2),
 	}),
 
-	s("gtra", {
+	s("gtr", {
 		t({ "\\begin{gather*}", "\t" }),
 		i(1),
 		t({ "", "\\end{gather*}" }),
+		t(""), i(2),
 	}),
 
 	s("cse", {
 		t({ "\\begin{cases}", "\t" }),
 		i(1),
 		t({ "", "\\end{cases}" }),
+		t(""), i(2),
 	}),
 
 	s("enr", {
 		t({ "\\begin{enumerate}", "\t\\item " }),
 		i(1),
 		t({ "", "\\end{enumerate}" }),
+		t(""), i(2),
 	}),
 
 	s("itm", {
 		t({ "\\begin{itemize}", "\t\\item " }),
 		i(1),
 		t({ "", "\\end{itemize}" }),
+		t(""), i(2),
 	}),
 
 	s("prf", {
 		t({ "\\begin{proof}", "\t" }),
 		i(1),
 		t({ "", "\\end{proof}" }),
+		t(""), i(2),
 	}),
 
 	s("tbg", {
@@ -261,6 +264,7 @@ return {
 			"\t" }),
 		i(1),
 		t({ "", "\\end{tabbing}" }),
+		t(""), i(2),
 	}),
 
 	s("fgr", {
@@ -269,52 +273,43 @@ return {
 		i(1), t("}"),
 		t({ "", "\t\\caption{" }),
 		i(2), t("}"),
-		t({ "", "\t\\label{" }),
-		i(3), t("}"),
 		t({ "", "\\end{figure}" }),
+		t(""), i(3),
 	}),
 	
 	-- ======================================================
 	-- SYMBOLS
 	-- ======================================================
 
-	s({ trig = "nnn", snippetType = "autosnippet",
-		wordTrig = false },
-	{ t("\\in ") }, math),
+	s({ trig = "ii", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\in ") }, math),
 
-	s({ trig = "fal", snippetType = "autosnippet" },
-	{ t("\\forall ") }, math),
+	s({ trig = "kk", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\to ") }, math),
 
-	s({ trig = "exs", snippetType = "autosnippet" },
-	{ t("\\exists ") }, math),
+	s({ trig = "fal", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\forall ") }, math),
 
-	s({ trig = "nbn", snippetType = "autosnippet" },
-	{ t("\\nonumber ") }, math),
+	s({ trig = "exs", snippetType = "autosnippet",
+		wordTrig = false}, { t("\\exists ") }, math),
 
-	s({ trig = "blt", snippetType = "autosnippet" },
-	{ t("\\bullet ") }, math),
+	s({ trig = "nbn", snippetType = "autosnippet",
+		wordTrig = false}, { t("\\nonumber ") }, math),
 
-	s({ trig = "dts", snippetType = "autosnippet" }, {
-		t("\\ldots ")
-	}, math),
+	s({ trig = "blt", snippetType = "autosnippet",
+		wordTrig = false}, { t("\\bullet ") }, math),
+
+	s({ trig = "dts", snippetType = "autosnippet",
+		wordTrig = false}, { t("\\ldots ") }, math),
 
 	s({trig = "leq", snippetType = "autosnippet",
-		wordTrig = false }, {
-			t("\\leq "),
-	}, math),
+		wordTrig = false }, { t("\\leq "), }, math),
 
 	s({trig = "geq", snippetType = "autosnippet",
-		wordTrig = false }, {
-			t("\\geq "),
-	}, math),
+		wordTrig = false }, { t("\\geq "), }, math),
 
 	s({trig = "neq", snippetType = "autosnippet",
-		wordTrig = false }, {
-			t("\\neq "),
-	}, math),
-
-	s({ trig = "nbl", snippetType = "autosnippet" },
-	{ t("\\nabla ") }, math),
+		wordTrig = false }, { t("\\neq "), }, math),
 
 	s({ trig = "ift", snippetType = "autosnippet" },
 	{ t("\\infty ") }, math),
@@ -334,189 +329,138 @@ return {
 	s({ trig = "eqc", snippetType = "autosnippet" },
 	{ t("\\eqcolon ") }, math),
 
-	s({ trig = "vct", snippetType = "autosnippet" },
+	s({ trig = "vv", snippetType = "autosnippet" },
 	{ t("\\vec{"), i(1), t("}") }, math),
 
 	s({ trig = "ovr", snippetType = "autosnippet" },
 	{ t("\\overrightarrow{"), i(1), t("}") }, math),
 
-	s({ trig = "vcv", snippetType = "autosnippet" },
-	{ t("\\vec{v} ") }, math),
-
-	s({ trig = "vcu", snippetType = "autosnippet" },
-	{ t("\\vec{u} ") }, math),
-
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
 	-- ======================================================
 	
-	s({ trig = "$", snippetType = "autosnippet",
-		wordTrig = false }, {
-			t("$"), i(1), t("$"),
-		}),
+	s({ trig = "$", snippetType = "autosnippet" }, 
+	{ t("$"), i(1), t("$"), }),
 
-	s({ trig = "sqr", snippetType = "autosnippet"},
-	{ t("\\sqrt{"), i(1), t("}"), },
-		math
-	),
+	s({ trig = "sqr", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\sqrt["), i(1), t("]{"), i(2), t("}")}, math ),
 
-	s({ trig = "nrm", snippetType = "autosnippet" },
-	{
-		t("\\| "), i(1), t(" \\|"),
-	},
-		math
-	),
+	s({ trig = "nrm", snippetType = "autosnippet",
+		wordTrig = false }, 
+		{ t("\\| "), i(1), t(" \\|"), }, math ),
 
-	s({ trig = "asv", snippetType = "autosnippet" },
-	{
-		t("| "), i(1), t(" |"),
-	},
-		math
-	),
+	s({ trig = "asv", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("| "), i(1), t(" |"), }, math ),
 
-	s({ trig = "ipr", snippetType = "autosnippet" },
-	{
-		t("\\langle "), i(1), t(", "), i(2), t(" \\rangle"),
-	}, 
-		math
-	),
+	s({ trig = "ipr", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\langle "), i(1), t(", "), i(2), t(" \\rangle"), },
+		math ),
 
-	s({ trig = "wpr", snippetType = "autosnippet" },
-	{
-		t("\\{ "), i(1), t(" \\}"),
-	},
-		math
-	),
+	s({ trig = "wpr", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\{ "), i(1), t(" \\}"), }, math ),
 
-	s({ trig = "bpr", snippetType = "autosnippet" },
-	{
-		t("\\left("), i(1), t("\\right)") },
-		math
-	),
+	s({ trig = "bpr", snippetType = "autosnippet",
+		wordTrig = false }, 
+		{ t("\\left("), i(1), t("\\right)") }, math ),
 
-	s({ trig = "bav", snippetType = "autosnippet" },
-	{
-		t("\\left|"), i(1), t("\\right|") },
-		math
-	),
+	s({ trig = "bav", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\left|"), i(1), t("\\right|") }, math ),
 
-	s({ trig = "bnm", snippetType = "autosnippet" },
-	{
-		t("\\left\\|"), i(1), t("\\right\\|") },
-		math
-	),
+	s({ trig = "bnm", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\left\\|"), i(1), t("\\right\\|") }, math ),
 
-	s({ trig = "bwp", snippetType = "autosnippet" },
-	{
-		t("\\left\\{"), i(1), t("\\right\\}") },
-		math
-	),
+	s({ trig = "bwp", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\left\\{"), i(1), t("\\right\\}") }, math ),
 
-	s({ trig = "brk", snippetType = "autosnippet" },
-	{
-		t("\\left["), i(1), t("\\right]") },
-		math
-	),
+	s({ trig = "brk", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\left["), i(1), t("\\right]") }, math ),
 
-	s({ trig = "lbl", snippetType = "autosnippet" },
-	{ t("\\label{"), i(1), t("}") },
-		math
-	),
+	s({ trig = "lbl", snippetType = "autosnippet",
+		wordTrig = false }, 
+		{ t("\\label{"), i(1), t("}") }, math ),
 
-	s("eqr", {
-		t("\\eqref{"),
-		i(1),
-		t("}"),
-	}),
+	s("eqr", { t("\\eqref{"), i(1), t("}"), }),
 
 	-- ======================================================
 	-- COMPLEX CONSTRUCTS
 	-- ======================================================
 
-	s({ trig = "frc", snippetType = "autosnippet"},
-		{ t("\\frac{"), i(1), t("}{"), i(2), t("}"), },
-		math
-	),
+	s({ trig = "frc", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\frac{"), i(1), t("}{"), i(2), t("}"), }, math ),
 
-	s( {trig = "itg", snippetType = "autosnippet"},
-	{
-		t("\\int_{"), i(1), t("}^{"), i(2), t("} "), i(3),
-	},
-		math
-	),
+	s( {trig = "itg", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\int_{"), i(1), t("}^{"), i(2), t("} "), i(3), }, math ),
 
-	s( {trig = "iitg", snippetType = "autosnippet"},
-	{
-		t("\\iint_{"), i(1), t("}^{"), i(2), t("} "), i(3),
-	},
-		math
-	),
+	s({ trig = "smt", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\sum_{"), i(1, "i=1"), t("}^{"), 
+		i(2, "n"), t("} "), i(3), }, math ),
 
-	s({ trig = "smt", snippetType = "autosnippet" },
-	{
-		t("\\sum_{"), i(1, "i=1"), t("}^{"), i(2, "n"), t("} "), i(3),
-	},
-		math
-	),
+	s({ trig = "prd", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\prod_{"), i(1, "i=1"), t("}^{"),
+		i(2, "n"), t("} "), i(3), }, math ),
 
-	s({ trig = "prd", snippetType = "autosnippet" },
-	{ t("\\prod_{"), i(1, "i=1"), t("}^{"), i(2, "n"), t("} "), i(3), },
-	math ),
+	s({ trig = "lmt", snippetType = "autosnippet",
+		wordTrig = false},
+		{ t("\\lim_{"), i(1, "x \\to 0"), t("} "), i(2), }, math ),
 
-	s({ trig = "lmt", snippetType = "autosnippet" },
-	{ t("\\lim_{"), i(1, "x \\to 0"), t("} "), i(2), },
-	math ),
+	s({ trig = "ptl", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\frac{\\partial "), i(1), t("}{\\partial "),
+		i(2), t("}"), }, math ),
 
-	s({ trig = "ptl", snippetType = "autosnippet" },
-	{ t("\\frac{\\partial "), i(1), t("}{\\partial "), i(2), t("}"), }, 
-	math ),
+	s({ trig = "ubr", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\underbrace{"), i(1), t("}_{"), i(2), t("}"), }, math ),
 
-	s({ trig = "ubr", snippetType = "autosnippet" },
-	{ t("\\underbrace{"), i(1), t("}_{"), i(2), t("}"), },
-	math ),
+	s({ trig = "bmr", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t( {"\\begin{bmatrix}", "\t" }),
+			i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
+			i(3), t(" & "), i(4),
+			t({ "", "\\end{bmatrix}" }),
+			t(""), i(5), 
+		}, math),
 
-	s({ trig = "bmr", snippetType = "autosnippet" },
-	{ t( {"\\begin{bmatrix}", "\t" }),
-		i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
-		i(3), t(" & "), i(4),
-		t({ "", "\\end{bmatrix}" }),
-	}),
-
-	s({ trig = "vmr", snippetType = "autosnippet" },
-	{ t( {"\\begin{vmatrix}", "\t" }),
-		i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
-		i(3), t(" & "), i(4),
-		t({ "", "\\end{vmatrix}" }),
-	}),
+	s({ trig = "vmr", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t( {"\\begin{vmatrix}", "\t" }),
+			i(1), t(" & "), i(2), t( { " \\\\", "\t" }),
+			i(3), t(" & "), i(4),
+			t({ "", "\\end{vmatrix}" }),
+			t(""), i(5),
+		}, math),
 
 	-- ======================================================
 	-- MODIFIERS
 	-- ======================================================
 
 	s({ trig = "sj", snippetType = "autosnippet", wordTrig = false },
-		{ t("_{"), i(1), t("}") },
-		math
-	),
+		{ t("_{"), i(1), t("}") }, math ),
 
 	s({ trig = "sk", snippetType = "autosnippet", wordTrig = false },
-		{ t("^{"), i(1), t("}") },
-		math
-	),
+		{ t("^{"), i(1), t("}") }, math ),
 
-	s({ trig ="hat", snippetType = "autosnippet"},
-	{ t("\\hat{"), i(1), t("}"), },
-		math
-	),
+	s({ trig ="hat", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\hat{"), i(1), t("}"), }, math ),
 
-	s({ trig ="ovl", snippetType = "autosnippet"},
-	{ t("\\overline{"), i(1), t("}"), },
-		math
-	),
+	s({ trig ="ovl", snippetType = "autosnippet",
+		wordTrig = false },
+	  { t("\\overline{"), i(1), t("}"), }, math ),
 
-	s({ trig ="tld", snippetType = "autosnippet"},
-	{ t("\\widetilde{"), i(1), t("}"), },
-		math
-	),
+	s({ trig ="tld", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\widetilde{"), i(1), t("}"), }, math ),
 
 	s("hsp", { t("\\hspace{"), i(1), t("em}") }),
 
@@ -526,83 +470,59 @@ return {
 	-- SCRIPTS
 	-- ======================================================
 
-	s({ trig = "RR", snippetType = "autosnippet" },
-	{ t("\\mathbb{R}") },
-		math
-	),
+	s({ trig = "RR", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{R}") }, math ),
 
-	s({ trig = "ZZ", snippetType = "autosnippet" },
-	{ t("\\mathbb{Z}") },
-		math
-	),
+	s({ trig = "ZZ", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{Z}") }, math ),
 
-	s({ trig = "NN", snippetType = "autosnippet" },
-	{ t("\\mathbb{N}") },
-		math
-	),
-	s({ trig = "QQ", snippetType = "autosnippet" },
-	{ t("\\mathbb{Q}") },
-		math
-	),
-	s({ trig = "CC", snippetType = "autosnippet" },
-	{ t("\\mathbb{C}") },
-		math
-	),
-	s({ trig = "mcl", snippetType = "autosnippet" },
-	{ t("\\mathcal{"), i(1), t("}")},
-		math
-	),
-	s({ trig = "mbb", snippetType = "autosnippet" },
-	{ t("\\mathbb{"), i(1), t("}")},
-		math
-	),
-	s({ trig = "msc", snippetType = "autosnippet" },
-	{ t("\\mathscr{"), i(1), t("}")},
-		math
-	),
-	s({ trig = "mbf", snippetType = "autosnippet" },
-	{ t("\\mathbf{"), i(1), t("}")},
-		math
-	),
-	s("tit", {
-		t("\\textit{"), i(1), t("}"),
-	}),
-	s("tbf", {
-		t("\\textbf{"), i(1), t("}"),
-	}),
+	s({ trig = "NN", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{N}") }, math ),
+
+	s({ trig = "QQ", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{Q}") }, math ),
+	s({ trig = "CC", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{C}") }, math ),
+
+	s({ trig = "mcl", snippetType = "autosnippet",
+		wordTrig = false}, { t("\\mathcal{"), i(1), t("}")}, math ),
+
+	s({ trig = "mbb", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbb{"), i(1), t("}")}, math ),
+
+	s({ trig = "msc", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathscr{"), i(1), t("}")}, math ),
+
+	s({ trig = "mbf", snippetType = "autosnippet",
+		wordTrig = false }, { t("\\mathbf{"), i(1), t("}")}, math ),
+
+	s("tit", { t("\\textit{"), i(1), t("}"), }),
+
+	s("tbf", { t("\\textbf{"), i(1), t("}"), }),
 
 	-- ======================================================
 	-- GREEK LETTERS
 	-- ======================================================
 
 	s({ trig = "aa", snippetType = "autosnippet" }, { t("\\alpha ") },      math),
-	s({ trig = "bb", snippetType = "autosnippet" }, { t("\\beta" ) },       math),
+	s({ trig = "bb", snippetType = "autosnippet" }, { t("\\beta " ) },       math),
 	s({ trig = "gg", snippetType = "autosnippet" }, { t("\\gamma ") },      math),
-	s({ trig = "GG", snippetType = "autosnippet" }, { t("\\Gamma ") },      math),
 	s({ trig = "dd", snippetType = "autosnippet" }, { t("\\delta ") },      math),
 	s({ trig = "DD", snippetType = "autosnippet" }, { t("\\Delta ") },      math),
-	s({ trig = "ee", snippetType = "autosnippet" }, { t("\\varepsilon ") },    math),
-	s({ trig = "zz", snippetType = "autosnippet" }, { t("\\zeta ") },       math),
+	s({ trig = "ee", snippetType = "autosnippet" }, { t("\\epsilon") },    math),
 	s({ trig = "tt", snippetType = "autosnippet" }, { t("\\theta ") },      math),
-	s({ trig = "TT", snippetType = "autosnippet" }, { t("\\Theta ") },      math),
 	s({ trig = "ll", snippetType = "autosnippet" }, { t("\\lambda ") },     math),
-	s({ trig = "LL", snippetType = "autosnippet" }, { t("\\Lambda ") },     math),
 	s({ trig = "mm", snippetType = "autosnippet" }, { t("\\mu ") },         math),
 	s({ trig = "nn", snippetType = "autosnippet" }, { t("\\nu ") },         math),
 	s({ trig = "pp", snippetType = "autosnippet" }, { t("\\pi ") },         math),
-	s({ trig = "PP", snippetType = "autosnippet" }, { t("\\Pi ") },         math),
 	s({ trig = "ss", snippetType = "autosnippet" }, { t("\\sigma ") },      math),
-	s({ trig = "SS", snippetType = "autosnippet" }, { t("\\Sigma ") },      math),
 	s({ trig = "oo", snippetType = "autosnippet" }, { t("\\omega ") },      math),
-	s({ trig = "OO", snippetType = "autosnippet" }, { t("\\Omega ") },      math),
 	s({ trig = "ff", snippetType = "autosnippet" }, { t("\\phi ") },        math),
-	s({ trig = "vf", snippetType = "autosnippet" }, { t("\\varphi ") },     math),
-	s({ trig = "pi", snippetType = "autosnippet" }, { t("\\psi ") },        math),
-	s({ trig = "PS", snippetType = "autosnippet" }, { t("\\Psi ") },        math),
+	s({ trig = "hh", snippetType = "autosnippet" }, { t("\\varphi ") },     math),
 	s({ trig = "xx", snippetType = "autosnippet" }, { t("\\xi ") },         math),
-	s({ trig = "XX", snippetType = "autosnippet" }, { t("\\Xi ") },         math),
-	s({ trig = "et", snippetType = "autosnippet" }, { t("\\eta ") },        math),
+	s({ trig = "yy", snippetType = "autosnippet" }, { t("\\eta ") },        math),
 	s({ trig = "rr", snippetType = "autosnippet" }, { t("\\rho ") },        math),
-	s({ trig = "kk", snippetType = "autosnippet" }, { t("\\kappa ") },      math),
-	s({ trig = "chi", snippetType = "autosnippet" }, { t("\\chi ") },        math),
+	s({ trig = "cc", snippetType = "autosnippet" }, { t("\\chi ") },        math),
+	s({ trig = "LL", snippetType = "autosnippet", },
+	{ t("\\nabla ") }, math),
 }
