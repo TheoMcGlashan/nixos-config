@@ -380,6 +380,10 @@ return {
 		wordTrig = false },
 		{ t("\\left["), i(1), t("\\right]") }, math ),
 
+	s({ trig = "bip", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\left\\langle"), i(1), t("\\right\\langle") }, math ),
+
 	s({ trig = "lbl", snippetType = "autosnippet",
 		wordTrig = false }, 
 		{ t("\\label{"), i(1), t("}") }, math ),
