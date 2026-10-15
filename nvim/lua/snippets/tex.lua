@@ -333,6 +333,14 @@ return {
 		wordTrig = false }, 
 		{ t("\\overrightarrow{"), i(1), t("}") }, math),
 
+	s({ trig = "sne", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\sin ") }, math),
+
+	s({ trig = "csn", snippetType = "autosnippet",
+		wordTrig = false },
+		{ t("\\cos ") }, math),
+
 	-- ======================================================
 	-- SIMPLE CONSTRUCTS
 	-- ======================================================
@@ -522,6 +530,8 @@ return {
 	s({ trig = "oo", snippetType = "autosnippet" }, { t("\\omega ") },      math),
 	s({ trig = "ff", snippetType = "autosnippet" }, { t("\\phi ") },        math),
 	s({ trig = "hh", snippetType = "autosnippet" }, { t("\\varphi ") },     math),
+	s({ trig = "uu", snippetType = "autosnippet" }, { t("\\tau ") 
+	},		math),
 	s({ trig = "xx", snippetType = "autosnippet" }, { t("\\xi ") },         math),
 	s({ trig = "yy", snippetType = "autosnippet" }, { t("\\eta ") },        math),
 	s({ trig = "rr", snippetType = "autosnippet" }, { t("\\rho ") },        math),
